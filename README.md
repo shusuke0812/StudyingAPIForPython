@@ -10,7 +10,14 @@ FastAPIを使ったAPIの作成練習
 - 
 
 ## 実行方法  
-- 
+- conda環境に入る
+```bash
+$ conda activate fastapi_todo
+```
+- conda環境を抜ける
+```bash
+$ conda deactivate
+```
 
 ## Memo
 - FastAPIの特徴：動作が早い、非同期処理ができる
