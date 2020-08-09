@@ -21,7 +21,7 @@ $ conda deactivate
 
 ## Memo
 - FastAPIの特徴：動作が早い、非同期処理ができる
-- redocやswaggerを使えばブラウザ１つでリクエスト、レスポンスのデバッグができる  
+- redoc（swaggerUI）を使えばブラウザ１つでリクエスト、レスポンスのデバッグができる  
 						   
 ## 参考文献   
 								 
