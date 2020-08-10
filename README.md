@@ -18,6 +18,10 @@ $ conda activate fastapi_todo
 ```bash
 $ conda deactivate
 ```
+## ルール
+- ダブルクォーテーションとシングルクオーテーションの使い分け
+ダブル： エクケープ文字がある場合、docstring（[PEP 257](https://www.python.org/dev/peps/pep-0257/)）  
+シングル：上記以外
 
 ## Memo
 - FastAPIの特徴：動作が早い、非同期処理ができる
