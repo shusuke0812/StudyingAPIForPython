@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from tasks import tasks
+from time import sleep
+from datetime import datetime
 
 app = FastAPI()
 
@@ -57,3 +59,14 @@ def delete_task(id: int):
         raise HTTPException(status_code=404, detail="Not found")
     task.remove(task[0])
     return {"result": "OK"}
+
+# 非同期処理の例
+# 時間のかかる処理をバックグラウンドで実行する
+def slow_task(numbers: int):
+    sleep(numbers)
+    print(f'sleep done. {datetime.utcnow()}')
+
+@app.get("/{numbers}")
+async def backjobs(numbers: int, background_tasks: BackgroundTasks):
+    background_tasks.add_task(slow_task, numebrs)
+    return {"result": f"finish {datetime.utcnow()}"}
