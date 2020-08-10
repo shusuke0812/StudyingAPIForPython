@@ -47,3 +47,13 @@ def patch_task(id: in, request_data: dict):
     for key in request_data.key():
         task[0][key] = request_data[key]
     return {"data": tasks[0]}
+
+# DELETE
+# タスクの削除
+@app.delete("/todo/api/v1.0/tasks/{id}")
+def delete_task(id: int):
+    task = [task for task in tasks if task['id' == id]]
+    if len(task) == 0:
+        raise HTTPException(status_code=404, detail="Not found")
+    task.remove(task[0])
+    return {"result": "OK"}
