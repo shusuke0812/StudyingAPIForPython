@@ -25,3 +25,15 @@ def get_task(id: Int):
     else:
         return {"data": task[0]}
 
+# POST
+# タスクの登録（パスはPOSTメソッドのボディ）
+@app.post("/todo/api/v1.0/tasks")
+def create_task(request_data: dict):
+    task = {
+        'id': tasks[-1]['id'] + 1,
+        'title': request_data['title'],
+        'description': request_data['description'],
+        'done': False
+    }
+    tasks.append(task)
+    return {"data": request_data}
