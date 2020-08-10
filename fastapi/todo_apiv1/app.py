@@ -1,7 +1,13 @@
-from fastapi import FastAPI, HTTPException
-from tasks import tasks
+from fastapi import FastAPI, HTTPException, BackgroundTasks
+from task import tasks
 from time import sleep
 from datetime import datetime
+from pydantic import BaseModel
+
+class Task(BaseModel):
+    title: str
+    description: str = None
+    done: bool = False
 
 app = FastAPI()
 
@@ -30,6 +36,7 @@ def get_task(id: int):
 # タスクの登録（パスはPOSTメソッドのボディ）
 @app.post("/todo/api/v1.0/tasks")
 def create_task(request_data: dict):
+    """
     task = {
         'id': tasks[-1]['id'] + 1,
         'title': request_data['title'],
@@ -38,11 +45,15 @@ def create_task(request_data: dict):
     }
     tasks.append(task)
     return {"data": request_data}
+    """
+
+    tasks.append(request_data)
+    return {"data": request_data}
 
 # PATCH
 # 既存タスクの更新
 @app.patch("/todo/api/v1.0/tasks/{id}")
-def patch_task(id: in, request_data: dict):
+def patch_task(id: int, request_data: dict):
     task = [task for task in tasks if task['id'] == id]
     if len(task) == 0:
         raise HTTPException(status_code=404, detail="Not found")
