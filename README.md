@@ -19,7 +19,7 @@ $ conda activate fastapi_todo
 $ conda deactivate
 ```
 ## ルール
-- ダブルクォーテーションとシングルクオーテーションの使い分け
+- ダブルクォーテーションとシングルクオーテーションの使い分け  
 ダブル： エクケープ文字がある場合、docstring（[PEP 257](https://www.python.org/dev/peps/pep-0257/)）、コードブロックの無効化  
 シングル：上記以外
 
