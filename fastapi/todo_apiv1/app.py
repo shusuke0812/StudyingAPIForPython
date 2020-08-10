@@ -16,7 +16,7 @@ def get_tasklist():
 
 # タスクIDを指定して取得
 @app.get("/todo/api/v1.0/tasks/{id}")
-def get_task(id):
+def get_task(id: Int):
     task_id = int(id)
     task = [task for task in tasks if task['id'] == task_id]
     if len(task) == 0:
