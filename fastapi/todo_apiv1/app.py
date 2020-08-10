@@ -9,6 +9,7 @@ def read_root():
     return {"Hello": "World"}
 '''
 
+# GET
 # タスク一覧を取得
 @app.get("/todo/api/v1.0/tasks")
 def get_tasklist():
@@ -23,3 +24,4 @@ def get_task(id: Int):
         raise HTTPException(status_code=404, detail="Not found")
     else:
         return {"data": task[0]}
+
