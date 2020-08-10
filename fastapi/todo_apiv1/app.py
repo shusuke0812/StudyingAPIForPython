@@ -37,3 +37,14 @@ def create_task(request_data: dict):
     }
     tasks.append(task)
     return {"data": request_data}
+
+# PATCH
+# 既存タスクの更新
+@app.patch("/todo/api/v1.0/tasks/{id}")
+def patch_task(id: in, request_data: dict):
+    task = [task for task in tasks if task['id'] == id]
+    if len(task) == 0:
+        raise HTTPException(status_code=404, detail="Not found")
+    for key in request_data.key():
+        task[0][key] = request_data[key]
+    return {"data": tasks[0]}
