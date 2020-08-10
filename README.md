@@ -25,7 +25,8 @@ $ conda deactivate
 
 ## Memo
 - FastAPIの特徴：動作が早い、非同期処理ができる
-- redoc（swaggerUI）を使えばブラウザ１つでリクエスト、レスポンスのデバッグができる  
+- redoc、docs（swaggerUI）を使えばブラウザ１つでリクエスト、レスポンスのデバッグができる  
+立ち上げ方：サーバーパスの最後に/redoc, /docsと書けば良い    
 						   
 ## 参考文献   
 - [はんなりPython FastAPIハンズオン 資料１](https://scrapbox.io/PythonOsaka/FastAPI_%E3%81%A7RESTful_Web%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%81%AE%E5%AE%9F%E8%A3%85_Part1)
